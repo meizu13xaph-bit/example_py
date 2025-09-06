@@ -16,11 +16,7 @@ def rich_console_text():
 
     inspect(logF, methods=False, private=False, docs=False)
     a, b, c = 1111111111111, 22222222222222, 333333333333333
-    text111, text222, text333 = (
-        Text("4444444444444444"),
-        Text("5555555555555555"),
-        Text("5555555555555555"),
-    )
+    text111, text222, text333 = Text("4444444444444444"), Text("5555555555555555"), Text("5555555555555555")
 
     print(locals())
     r_print(locals())
@@ -48,7 +44,5 @@ def rich_console_text():
 
     blue_console = Console(style="white on yellow")
     blue_console.print("11 222 (скобки) <угловые> {фигурные} g=7 style=white on-red")
-    text3 = Text.assemble(
-        ("33 444 Text.assemble = (blue)", "blue"), " + (ff) blue_console"
-    )
+    text3 = Text.assemble(("33 444 Text.assemble = (blue)", "blue"), " + (ff) blue_console")
     blue_console.print(text3)

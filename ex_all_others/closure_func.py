@@ -22,9 +22,7 @@ def outer(y=1):
     dbg_info_closure(inner)
 
     x = 30
-    logF.info(
-        f"clo - {x} - {inner.__closure__[0].cell_contents} - {inner.__closure__[0]}"
-    )
+    logF.info(f"clo - {x} - {inner.__closure__[0].cell_contents} - {inner.__closure__[0]}")
     return inner
 
 

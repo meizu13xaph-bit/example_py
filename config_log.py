@@ -9,9 +9,7 @@ LOG_FILE = "example.log"
 class ConfigLogger:
     pathLoggerDir = LOG_DIR
     nameFileLogger = LOG_FILE
-    isSetting = (
-        False  # для того чтобы settingLogger() вызвать один раз при запуске программы
-    )
+    isSetting = False  # для того чтобы settingLogger() вызвать один раз при запуске программы
 
     @staticmethod
     def __create_log_dir(pathDir):

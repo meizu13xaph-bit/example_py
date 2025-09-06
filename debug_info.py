@@ -40,9 +40,7 @@ def dbg_info_dict(obj):
 def dbg_info_module(mod):
     mod_dict = mod.__dict__
     s = "\n".join([f"{k} = {v}" for k, v in mod_dict.items() if k not in list_not])
-    logF.info(
-        f"###module : '{mod.__name__}' = {hex(id(mod))} : .__dict__ = {hex(id(mod_dict))}\n{s}"
-    )
+    logF.info(f"###module : '{mod.__name__}' = {hex(id(mod))} : .__dict__ = {hex(id(mod_dict))}\n{s}")
 
 
 def dbg_info_name_module(name_mod):
@@ -50,9 +48,7 @@ def dbg_info_name_module(name_mod):
 
     mod_dict = mod.__dict__
     s = "\n".join([f"{k} = {v}" for k, v in mod_dict.items() if k not in list_not])
-    logF.info(
-        f"###module : '{mod.__name__}' = {hex(id(mod))} : .__dict__ = {hex(id(mod_dict))}\n{s}"
-    )
+    logF.info(f"###module : '{mod.__name__}' = {hex(id(mod))} : .__dict__ = {hex(id(mod_dict))}\n{s}")
 
 
 def dbg_info_module_id(mod, var_name="module"):
@@ -67,9 +63,7 @@ def dbg_info_func(func: Callable):
     __name, __module = func.__name__, func.__module__
     # logFC.info(f"function : '{__name}' = {func.__dict__=}")
 
-    def_s = (
-        f"\n.defaults = {func.__defaults__}" if func.__defaults__ is not None else f""
-    )
+    def_s = f"\n.defaults = {func.__defaults__}" if func.__defaults__ is not None else f""
     const_s = f"\n.co_consts = {func.__code__.co_consts}"
 
     if hasattr(func, "__closure__") and func.__code__.co_freevars:

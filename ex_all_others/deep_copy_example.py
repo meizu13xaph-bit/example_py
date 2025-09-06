@@ -14,9 +14,7 @@ class GraphNode:
         self.neighbors = []
 
     def __deepcopy__(self, memo: dict):
-        logF.info(
-            f"deepcopy : name = {self.name} = {id(self)} : {hex(id(self))}\n{pformat(memo)}"
-        )
+        logF.info(f"deepcopy : name = {self.name} = {id(self)} : {hex(id(self))}\n{pformat(memo)}")
 
         # Проверяем, не копировали ли этот объект ранее
         if id(self) in memo:

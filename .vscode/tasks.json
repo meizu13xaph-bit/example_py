@@ -4,7 +4,7 @@
         {
             "label": "Run PowerShell black.",
             "type": "shell",
-            "command": "black .",
+            "command": "black --line-length 120 .",
             "presentation": {
                 "panel": "shared", // переиспользовать один общий терминал
                 "clear": false,
@@ -16,7 +16,7 @@
                 "shell": {
                     "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                     "args": [
-                        "\"${workspaceFolder}\\.venv\\Scripts\\Activate.ps1\";"
+                        "\"${workspaceFolder}\\venv\\Scripts\\Activate.ps1\";"
                     ]
                 }
             },
