@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from config_log import ConfigLogger
+
 logF = ConfigLogger.get_logger("OnlyFile")
 from pprint import pformat
 
@@ -13,7 +14,9 @@ class GraphNode:
         self.neighbors = []
 
     def __deepcopy__(self, memo: dict):
-        logF.info(f"deepcopy : name = {self.name} = {id(self)} : {hex(id(self))}\n{pformat(memo)}")
+        logF.info(
+            f"deepcopy : name = {self.name} = {id(self)} : {hex(id(self))}\n{pformat(memo)}"
+        )
 
         # Проверяем, не копировали ли этот объект ранее
         if id(self) in memo:

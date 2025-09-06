@@ -21,7 +21,7 @@ class MyMetaCls(type):
         result = super().__call__(*args, **kwargs)
         return result
 
-    def __mul__(cls: Type['MyClassOne'], x: int) -> 'MyClassOne':
+    def __mul__(cls: Type["MyClassOne"], x: int) -> "MyClassOne":
         logF.info(f"'Metaclass.__mul__'(cls, x) : {x=}")
         return cls(x, "meta_mul")  # Создание и возврат экземпляра класса
 
@@ -33,13 +33,17 @@ class MyClassOne(metaclass=MyMetaCls):
         self.name = name
 
     def __call__(self, b: int):
-        logF.info(f"{self.name} 'Class.__call__'(self, b: int); return int = {self.x=} + {b=}")
+        logF.info(
+            f"{self.name} 'Class.__call__'(self, b: int); return int = {self.x=} + {b=}"
+        )
         new = self.x + b
         return new
 
     @DecorDescrLogger
     def __mul__(self, b: int):
-        logF.info(f"{self.name} : 'Class.__mul__'(self, b: int); NEW : {self.x=} * {b=}")
+        logF.info(
+            f"{self.name} : 'Class.__mul__'(self, b: int); NEW : {self.x=} * {b=}"
+        )
         new = self.x * b
         return MyClassOne(new, "cls_mul")
 
@@ -114,16 +118,22 @@ def example_call_func_mul():
     # обращение к дескриптору в классе MyClass_1 = [ __mul__.__get__(x1, MyClass_1) ]
     # ВЕРНЁТ =  [def __mul__(b: int):]
     x6 = x1.__mul__(6)
-    logF.info(f"after : [x6 = x1.__mul__(6)] -> {x1=} & {x6=}\n")  # Использование __mul__
+    logF.info(
+        f"after : [x6 = x1.__mul__(6)] -> {x1=} & {x6=}\n"
+    )  # Использование __mul__
 
     # дескриптор __mul__.__get__() : ВЕРНЁТ =  [def __mul__(self, b: int):]
     x7 = MyClassOne.__mul__(x1, 7)
-    logF.info(f"after : [x7 = MyClass_1.__mul__(x1, 7)] -> {x7=}\n")  # Использование __mul__
+    logF.info(
+        f"after : [x7 = MyClass_1.__mul__(x1, 7)] -> {x7=}\n"
+    )  # Использование __mul__
 
     # __dict__.get("__mul__") : ВЕРНЁТ = дескриптор __mul__
     # далее вызов __get__() : ВЕРНЁТ =  [def __mul__(b: int):]
     x8 = MyClassOne.__dict__.get("__mul__").__get__(x2, MyClassOne)(9)
-    logF.info(f"after : [x8 = MyClass_1.__mul__(x2, 9)] -> {x8=}\n")  # Использование __mul__
+    logF.info(
+        f"after : [x8 = MyClass_1.__mul__(x2, 9)] -> {x8=}\n"
+    )  # Использование __mul__
 
     # id_print_mull(x8)
 
