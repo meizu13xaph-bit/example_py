@@ -1,4 +1,5 @@
 from config_log import ConfigLogger
+
 logF = ConfigLogger.get_logger("OnlyFile")
 
 from ex_code_war.split_strings import split_strings

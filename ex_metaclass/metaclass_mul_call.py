@@ -21,7 +21,7 @@ class MyMetaCls(type):
         result = super().__call__(*args, **kwargs)
         return result
 
-    def __mul__(cls: Type['MyClassOne'], x: int) -> 'MyClassOne':
+    def __mul__(cls: Type["MyClassOne"], x: int) -> "MyClassOne":
         logF.info(f"'Metaclass.__mul__'(cls, x) : {x=}")
         return cls(x, "meta_mul")  # Создание и возврат экземпляра класса
 

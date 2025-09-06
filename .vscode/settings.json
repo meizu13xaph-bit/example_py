@@ -114,7 +114,7 @@
     "command-runner.terminal.autoFocus": true,
     "command-runner.commands": {
         "echo file - venv Activate": "echo ${file}",
-        "start formatter Py = black .": "black ."
+        "start formatter Py = black .": "black --line-length 120 ."
     },
 
     "statusbar_command.commands": [
@@ -144,7 +144,7 @@
             "command": "workbench.action.terminal.sendSequence",
             "arguments": [
                 {
-                    "text": "powershell black .\r"
+                    "text": "powershell black --line-length 120 .\r"
                 }
             ],
             "alignment": "left",

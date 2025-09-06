@@ -1,4 +1,5 @@
 from config_log import ConfigLogger
+
 logF = ConfigLogger.get_logger("OnlyFile")
 
 from rich.console import Console
@@ -23,7 +24,10 @@ def rich_console_text():
     panel = Panel(pretty)
     r_print(panel)
 
-    panel = Panel(Text("Panel(Text) : justify=right : style=red", style="red", justify="right"), title="Title text")
+    panel = Panel(
+        Text("Panel(Text) : justify=right : style=red", style="red", justify="right"),
+        title="Title text",
+    )
     r_print(panel)
 
     text0 = Text("Text, text.stylize(bold magenta, 0, 6)")

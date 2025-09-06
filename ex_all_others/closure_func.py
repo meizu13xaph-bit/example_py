@@ -1,4 +1,5 @@
 from config_log import ConfigLogger
+
 logF = ConfigLogger.get_logger("OnlyFile")
 
 from dis import dis
@@ -17,6 +18,7 @@ def outer(y=1):
         nonlocal x
         x, glob = x + 5, glob + 1
         return x, glob
+
     dbg_info_closure(inner)
 
     x = 30
@@ -35,6 +37,8 @@ def closure_start():
 
     dbg_info_func(outer)
     dbg_info_func(inner_obj)
+
+
 # ------------------------------------------------------------------------
 
 
@@ -49,7 +53,9 @@ def func():
             nonlocal x
             x = 2
             return x + y + a
+
         return second
+
     return first
 
 

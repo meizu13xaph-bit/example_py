@@ -5,21 +5,23 @@ from sshtunnel import SSHTunnelForwarder, BaseSSHTunnelForwarderError
 import logging
 
 # Настройка логирования для лучшего понимания происходящего
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # --- Настройки SSH сервера ---
 # Замените эти данные на данные вашего удаленного SSH сервера
-SSH_HOST = 'your_remote_ssh_server_ip_or_hostname'  # IP или hostname вашего удаленного SSH сервера
+SSH_HOST = "your_remote_ssh_server_ip_or_hostname"  # IP или hostname вашего удаленного SSH сервера
 SSH_PORT = 22  # Порт SSH (обычно 22)
-SSH_USER = 'your_ssh_username'  # Имя пользователя для SSH
+SSH_USER = "your_ssh_username"  # Имя пользователя для SSH
 # Выберите один из способов аутентификации: пароль или ключ
-SSH_PASSWORD = 'your_ssh_password'            # Пароль для SSH (закомментируйте, если используете ключ)
-SSH_PKEY = '/path/to/your/private/key.pem'  # Путь к вашему приватному SSH ключу (закомментируйте, если используете пароль)
+SSH_PASSWORD = "your_ssh_password"  # Пароль для SSH (закомментируйте, если используете ключ)
+SSH_PKEY = (
+    "/path/to/your/private/key.pem"  # Путь к вашему приватному SSH ключу (закомментируйте, если используете пароль)
+)
 # SSH_PASSPHRASE = 'your_key_passphrase'        # Пароль для приватного ключа (если он защищен паролем)
 
 
 # --- Настройки локального SOCKS5 прокси ---
-LOCAL_SOCKS_HOST = 'localhost'
+LOCAL_SOCKS_HOST = "localhost"
 LOCAL_SOCKS_PORT = 1080
 
 # --- Настройки восстановления соединения ---
@@ -58,14 +60,11 @@ def start_socks_tunnel():
             # ssh_pkey=SSH_PKEY if 'SSH_PKEY' in locals() else None,
             # ssh_private_key=SSH_PKEY if 'SSH_PKEY' in locals() else None, # Альтернативное имя параметра
             # ssh_private_key_password=SSH_PASSPHRASE if 'SSH_PASSPHRASE' in locals() else None,
-
-            ssh_password=SSH_PASSWORD if 'SSH_PASSWORD' in globals() and SSH_PASSWORD else None,
-
+            ssh_password=(SSH_PASSWORD if "SSH_PASSWORD" in globals() and SSH_PASSWORD else None),
             # Указываем локальный адрес и порт для SOCKS5 прокси
             # sshtunnel автоматически определяет, что это динамический (SOCKS),
             # если remote_bind_address не указан.
             ssh_tunnel_bind_address=(LOCAL_SOCKS_HOST, LOCAL_SOCKS_PORT),
-
             # Дополнительные опции (можно настроить):
             # connect_timeout=10, # Таймаут подключения к SSH серверу
             # ssh_keepalive=10,   # Отправлять keepalive пакеты каждые N секунд

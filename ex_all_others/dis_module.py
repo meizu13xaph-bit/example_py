@@ -17,21 +17,21 @@ def process_arbitrary_params(*args):
 
 # Примеры использования
 def process():
-    names = ['Alice', 'Bob', 'Charlie']
+    names = ["Alice", "Bob", "Charlie"]
     process_arbitrary_params(*names)
-    process_arbitrary_params('Alice', 'Bob', 'Charlie')
+    process_arbitrary_params("Alice", "Bob", "Charlie")
 
 
 def dis_mod():
     logF.info(f"'****' dis_mod - 'start'")
 
     dir_current = pathlib.Path(__file__).parent
-    path = pathlib.Path(dir_current, 'my_module.py')
+    path = pathlib.Path(dir_current, "my_module.py")
 
-    m = sys.modules.get('ex_all_others.my_module')  # модуль уже импортирован
+    m = sys.modules.get("ex_all_others.my_module")  # модуль уже импортирован
 
-    src, filename = inspect.getsource(m), getattr(m, '__file__', '<string>')
-    code = compile(src, filename, 'exec')
+    src, filename = inspect.getsource(m), getattr(m, "__file__", "<string>")
+    code = compile(src, filename, "exec")
     # src = path.read_text(encoding='utf-8')
     # code = compile(src, str(path), 'exec')
 
