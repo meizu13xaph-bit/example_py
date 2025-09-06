@@ -1,0 +1,30 @@
+# VSCode
+#.vscode/
+
+# JetBrains IDE
+.idea/
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
+log/
+
+
+
+pg_db/
+db.sqlite3
