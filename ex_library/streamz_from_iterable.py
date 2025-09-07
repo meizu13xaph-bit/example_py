@@ -1,3 +1,7 @@
+from config_log import ConfigLogger
+
+logF = ConfigLogger.get_logger("OnlyFile")
+
 import time
 
 from streamz import Stream

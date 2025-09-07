@@ -3,7 +3,8 @@ from config_log import ConfigLogger
 logF = ConfigLogger.get_logger("OnlyFile")
 
 from ex_metaclass import metaclass_mul_call
-from ex_metaclass import noisy_meta
+
+# from ex_metaclass import noisy_meta
 
 
 # ------------------------------------------------------------------------
