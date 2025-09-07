@@ -30,8 +30,8 @@ def split_zip_map(s):
     return list(map("".join, zip(iterator, iterator)))
 
 
-def split_strings():
-    logF.info(f"'****' split_strings - 'start'")
+def run_split_strings():
+    logF.info(f"'****' run_split_strings - 'start'")
 
     s1 = "abc"
     s2 = "abcdef"

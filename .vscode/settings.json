@@ -149,6 +149,17 @@
             ],
             "alignment": "left",
             "priority": 20
+        },
+        {
+            "text": "req.txt     |",
+            "command": "workbench.action.terminal.sendSequence",
+            "arguments": [
+                {
+                    "text": "pip install -r requirements.txt\r"
+                }
+            ],
+            "alignment": "left",
+            "priority": 20
         }
     ]
 }

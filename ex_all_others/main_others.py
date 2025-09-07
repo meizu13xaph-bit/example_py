@@ -1,15 +1,15 @@
 from config_log import ConfigLogger
-from ex_all_others.dis_module import dis_mod
 
 logF = ConfigLogger.get_logger("OnlyFile")
 
-from ex_all_others.trap_task import trap_1
-from ex_all_others.dis_async_await import async_start
-from ex_all_others.rich_print import rich_console_text
-from ex_all_others.closure_func import closure_start, closure_new1
-from ex_all_others.deep_copy_example import deep_start
-from ex_all_others.sobes11 import not_hash_err, sob_work_1
-from ex_all_others.others_11 import others_11_start
+from ex_all_others import trap_task
+from ex_all_others import dis_async_await
+from ex_all_others import rich_print
+from ex_all_others import closure_func
+from ex_all_others import deep_copy_example
+from ex_all_others import sobes11
+from ex_all_others import others_11
+from ex_all_others import dis_module
 
 
 # ------------------------------------------------------------------------
@@ -18,14 +18,17 @@ def main_others(w=None):
         return
     logF.info(f"'****' main_others - 'start'")
 
-    # trap_1()
-    # async_start()
-    # rich_console_text()
-    # closure_start()
-    # deep_start()
+    # trap_task.trap_1()
+    dis_async_await.async_start()
+    rich_print.rich_console_text()
 
-    # not_hash_err()
-    # sob_work_1()
-    # others_11_start()
-    # closure_new1()
-    dis_mod()
+    closure_func.closure_start()
+    closure_func.closure_new1()
+
+    # deep_copy_example.deep_start()
+
+    # sobes11.not_hash_err()
+    # sobes11.sob_work_1()
+
+    # others_11.others_11_start()
+    # dis_module.dis_mod()

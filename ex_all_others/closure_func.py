@@ -6,6 +6,7 @@ from dis import dis
 from debug_info import dbg_info_func, dbg_info_closure
 
 
+# ------------------------------------------------------------------------
 glob = 10
 
 
