@@ -4,6 +4,7 @@ logF = ConfigLogger.get_logger("OnlyFile")
 
 from ex_library import streamz_from_iterable
 from ex_library import my_stream_map
+from ex_library import stream_example
 
 
 # ------------------------------------------------------------------------
@@ -16,4 +17,5 @@ def main_library(w=None):
     # streamz_from_iterable.run_streamz_example_1()
     # streamz_from_iterable.run_streamz_example_2()
 
-    my_stream_map.chain_maps()
+    # my_stream_map.chain_maps()
+    stream_example.run_my_stream_example()
