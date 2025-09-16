@@ -1,5 +1,6 @@
 import itertools
 
+
 class Stream:
     def __init__(self, iterable):
         self.iterable = iterable
