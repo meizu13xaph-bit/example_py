@@ -37,6 +37,7 @@ def dbg_info_dict(obj):
     )
 
 
+# ------------------------------------------------------------- Module
 def dbg_info_module(mod):
     mod_dict = mod.__dict__
     s = "\n".join([f"{k} = {v}" for k, v in mod_dict.items() if k not in list_not])
@@ -55,8 +56,20 @@ def dbg_info_module_id(mod, var_name="module"):
     logF.info(f"'{var_name}' = {mod.__name__} : id = {hex(id(mod))}")
 
 
+# ------------------------------------------------------------- Function
 def dbg_info_closure(func):
-    logF.info(f"inner.__closure__ = {func.__closure__}")
+    __name, __module = func.__name__, func.__module__
+    logF.info(f"'debug' function : {__name=} = {__module=}")
+
+    if func.__defaults__:
+        logF.info(f"FUNC.__defaults__: {func.__defaults__}")
+
+    if hasattr(func, "__closure__") and func.__code__.co_freevars:
+        logF.info(f"FUNC.co_freevars: {func.__code__.co_freevars}")
+        logF.info(f"FUNC.__closure__ = {func.__closure__}")
+
+    logF.info(f"FUNC.co_varnames: {func.__code__.co_varnames}")
+    logF.info(f"FUNC.co_cellvars: {func.__code__.co_cellvars}")
 
 
 def dbg_info_func(func: Callable):
@@ -87,9 +100,9 @@ def dbg_info_func(func: Callable):
 
 def dbg_info_frame(frame: FrameType, name=None):
     if not name:
-        logF.info(f"###frame '.f_locals' = {str(frame.f_code)[13:]}\n{frame.f_locals}")
+        logF.info(f"###'frame'.f_locals### = {str(frame.f_code)[13:]} \n   {frame.f_locals}")
     else:
-        logF.info(f"###frame.f_locals### '{name}'\n{frame.f_locals}")
+        logF.info(f"###'frame'.f_locals### '{name}' \n   {frame.f_locals}")
 
 
 def log_dict_items(log_dict: dict, descr="dict"):
