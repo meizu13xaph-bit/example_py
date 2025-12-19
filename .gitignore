@@ -4,6 +4,9 @@
 # JetBrains IDE
 .idea/
 
+# user ignore
+zip_files_dir/
+
 # Node
 node_modules/
 
