@@ -4,14 +4,7 @@ logF = ConfigLogger.get_logger("OnlyFile")
 
 import json
 from zipfile import ZipFile, ZIP_DEFLATED
-from pathlib import Path
-
-
-DIR_CWD: Path = Path.cwd()
-DIR_CURRENT_FILE: Path = Path(__file__).resolve().parent
-
-NAME_DIR_FILES: str = "zip_files_dir/"
-DIR_FILES: Path = DIR_CURRENT_FILE / NAME_DIR_FILES
+from ex_file_zip.zip_config import DIR_FILES
 
 
 def write_to_zip():
@@ -20,10 +13,6 @@ def write_to_zip():
     2. Создает на диске временный JSON файл.
     3. Записывает этот JSON файл в архив под именем 'json1.json'.
     """
-    # Логируем текущие пути для отладки
-    logF.info(f"Absolute paths: {DIR_CWD=} \n{DIR_CURRENT_FILE=}")
-    logF.info(f"Absolute paths: {NAME_DIR_FILES=} \n{DIR_FILES=}")
-
     # Создаем директорию, куда будут сохраняться файлы, если она не существует
     DIR_FILES.mkdir(parents=True, exist_ok=True)
 
